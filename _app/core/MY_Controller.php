@@ -4,7 +4,8 @@ class MY_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct(); 
-
+        $this->load->helper( 'app' );
+        $this->load->library( 'session' );
     }
 
     public function get_theme( $type = null ) {
@@ -23,6 +24,20 @@ class MY_Controller extends CI_Controller {
             $theme_login = $theme_conf->row('configuration_value');
         }
         return $theme_login;
+    }
+
+    public function createRespon( $code = 200, $msg = 'OK', $data ) {
+        $pesan = array(
+            'status_code' => $code,
+            'message' => $msg
+        );
+
+        $pesan = array(
+            'status_code' => $code,
+            'message' => $msg,
+            'data' => $data
+        );
+        return json_encode( $pesan );
     }
 
 }

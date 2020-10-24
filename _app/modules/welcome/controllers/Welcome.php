@@ -6,7 +6,9 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 		$theme = $this->get_theme('login');
-		disp($theme);
+		$data = [];
+		$res = $this->createRespon(200,'OK', $data);
+		disp($res);
 		die();
 		$this->load->view('welcome_message');
 	}
