@@ -74,12 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=core_ci',
+	// 'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=core_ci',
+	'dsn' => '',
 	'hostname' => 'localhost',
-	'username' => 'core_ci',
-	'password' => 'asdzxc',
-	'database' => '',
-	'dbdriver' => 'pdo',
+	'username' => 'root',
+	'password' => 'root',
+	'database' => 'core_ci',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
