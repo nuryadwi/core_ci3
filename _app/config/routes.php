@@ -53,6 +53,6 @@ $route['default_controller'] = 'login/backend';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// ADMIN
+// ADMIN ROUTES
 $route['admin/login'] = "login/backend";
 $route['admin/dashboard'] = "dashboard/backend";
