@@ -83,3 +83,13 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+// CUSTOM DEFINE
+defined('TOKEN_TIMEOUT')       OR define('TOKEN_TIMEOUT', '120 minutes');
+define( 'ASSETS', 'assets/' );
+define( 'LOGIN', 'login' );
+define( 'JS', 'assets/js/' );
+define( 'CSS', 'assets/css/' );
+define( 'IMG', 'assets/images/' );
+define( 'UPLOADS', 'assets/uploads/' );
+define( 'ADMIN_IMAGE', 'upload/images/user' );

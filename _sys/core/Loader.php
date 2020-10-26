@@ -495,6 +495,12 @@ class CI_Loader {
 		return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_prepare_view_vars($vars), '_ci_return' => $return));
 	}
 
+	public function ext_view( $view_template, $vars = array(), $return = FALSE)
+	{
+		$this->_ci_view_paths = [ FCPATH => TRUE ];
+		return $this->_ci_load(array('_ci_view' => $view_template, '_ci_vars' => $this->_ci_prepare_view_vars($vars), '_ci_return' => $return));
+	}
+
 	// --------------------------------------------------------------------
 
 	/**
