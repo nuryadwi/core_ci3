@@ -21,7 +21,7 @@
 						<div class="col-md-12">
 							<div class="card-body">
 								<form method="post" action="<?php echo $link_post;?>">
-									<h3><img src="<?php echo ASSETS ;?>images/logo_lite.png" alt=""></h3>
+									<h3><img src="<?php //echo ASSETS ;?>images/logo_lite.png" alt=""></h3>
 									<hr>
 									<div id="notif" class="form-group mb-3 alert alert-danger" style="display:none;"></div>
 									<div class="input-group form-group d-flex">
