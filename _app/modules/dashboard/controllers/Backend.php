@@ -18,7 +18,7 @@ class Backend extends Backend_Controller
 		$this->template->breadcrumb($this->breadcrumb);
 		$this->template->title("Dashboard");
 		$this->template->content("dashboard/Dashboard", $data);
-        
+
         $this->template->show(THEMES_BACKEND . 'index');
     }
 }

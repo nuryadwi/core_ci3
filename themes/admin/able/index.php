@@ -1,5 +1,5 @@
 <?php
-    $image_profile = ( ( isset($this->user_info['user_image']) != '' ) ? $this->user_info['user_image'] : base_url( 'assets/images/default.png' ) );
+    $image_profile = ( ( !empty($this->user_info['user_image'])) ? $this->user_info['user_image'] : base_url( 'assets/images/default.png' ) );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item pl-0 mr-2">
-						<a class="mobile-menu text-primary" id="mobile-collapse" href="#!"><span></span></a>				
+						<a class="mobile-menu text-primary" id="mobile-collapse" href="#!"><span></span></a>
 					</li>
                     <li class="nav-item">
 						<a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
@@ -130,11 +130,79 @@
 				</ul>
             </div>
         </header>
+        <nav class="pcoded-navbar menu-light position-fixed">
+    			<div class="navbar-wrapper  ">
+    				<div class="navbar-content scroll-div " >
+    					<div class="">
+    						<div class="main-menu-header">
+                    <h5> Administrator </h5>
+                    <img class="img-radius" src="<?php echo $image_profile;?> " alt="User-Profile-Image">
+                     <div class="user-details">
+   							<div id="more-details">Nama pengguna</div>
+   						</div>
+                </div>
+                <ul class="nav pcoded-inner-navbar">
+                     <?php require('nav.php'); ?>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="pcoded-main-container">
+            <div class="pcoded-content">
+               <div class="page-header bg-transparent">
+                  <div class="page-block">
+                     <div class="row align-items-center">
+                        <div class="col-md-12">
+                           <div class="page-header-title">
+                              <h4 class="m-b-10"><?php echo $this->template->get('title','Module title');?></h4>
+                           </div>
+                           <ul class="breadcrumb">
+                              <li class="breadcrumb-item">
+                                 <a href="<?php echo base_url( 'admin/dashboard/show' );?>"><i class="feather icon-home"></i>
+                                 </a>
+                              </li>
+                              <?php
+                                 $breadcrumb = $this->template->get('breadcrumb');
+                                 if( is_array( $breadcrumb ) ) {
+                                    $length = count( $breadcrumb );
+                                    $num = 1;
+                                    foreach ($breadcrumb as $title => $link) {
+                                       $class_active = ( ( $num == $length ) ? "active" : null );
+                                       echo '
+                                          <li class="breadcrumb-item ' .$class_active. ' ">
+                                             <a href=" '.base_url($link).' ">' .$title. '</a>
+                                          </li>
+                                       ';
+                                    }
+                                 }
+                              ?>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xl-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <?php echo $this->template->get('content');?>
+                        </div>
+                     </div>
+                  </div>
 
-        <script src="<?php echo base_url() . JS;?>plugins/bootstrap.min.js"></script>
+               </div>
+            </div>
+        </div>
+
+      <div id="toast"></div>
+
+      <script src="<?php echo base_url() . JS;?>plugins/bootstrap.min.js"></script>
 		<script src="<?php echo base_url() . JS;?>ripple.js"></script>
 		<script src="<?php echo base_url() . JS;?>pcoded.min.js"></script>
 		<script src="<?php echo base_url() . JS;?>func/gen.js"></script>
 		<script src="<?php echo base_url() . JS;?>plugins/Chart.min.js"></script>
+
+      <?php echo $this->template->get( 'footer_script' );?>
     </body>
 </html>

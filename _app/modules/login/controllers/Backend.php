@@ -11,14 +11,14 @@ class Backend extends Login_Controller {
     {
         $this->show();
     }
-    
+
     function show()
 	{
         $data = array();
 		$data['status'] = 0;
-		$data['link_post'] = base_url( 'admin/login/auth' );
+		$data['link_post'] = base_url( 'admin/dashboard' );
         $this->template->customize_params( $data );
 		$this->template->show( THEMES_LOGIN . 'index' );
     }
-    
+
 }
