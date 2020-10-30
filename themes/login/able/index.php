@@ -13,8 +13,11 @@
 		<!-- vendor css -->
 		<link rel="stylesheet" href="<?php echo ASSETS ;?>css/style.css">
 	</head>
+   <?php
+		$iconPath = base_url( 'assets/images/bg-login.jpg' );
+	?>
     <body>
-		<div class="auth-wrapper" style="background-image: ;background-size: cover">
+		<div class="auth-wrapper" style="background-image:url('<?php echo $iconPath; ?>') ;background-size: cover">
 			<div class="auth-content">
 				<div class="card">
 					<div class="row align-items-center text-center">
@@ -22,13 +25,21 @@
 							<div class="card-body">
 								<form method="post" action="<?php echo $link_post;?>">
 									<h3><img src="<?php //echo ASSETS ;?>images/logo_lite.png" alt=""></h3>
-									<hr>
-									<div id="notif" class="form-group mb-3 alert alert-danger" style="display:none;"></div>
+									<br>
+									<?php
+                              if ( $this->session->flashdata('error') ) {
+                                 echo '
+                                    <div class="form-group mb-3 alert alert-danger">
+                                       '.$this->session->flashdata('error').'
+                                    </div>
+                                 ';
+                              }
+                           ?>
 									<div class="input-group form-group d-flex">
 									</div>
 									<div class="form-group mb-4">
 										<label class="floating-label" for="Password">Email</label>
-										<input type="email" name="email" class="form-control" id="Email" placeholder="">
+										<input type="email" name="username" class="form-control" id="Username" placeholder="">
 									</div>
 									<div class="form-group mb-4">
 										<label class="floating-label" for="Password">Password</label>
@@ -58,10 +69,6 @@
 		<script src="<?php echo ASSETS;?>js/plugins/bootstrap.min.js"></script>
 		<script src="<?php echo ASSETS;?>js/ripple.js"></script>
 		<script src="<?php echo ASSETS;?>js/pcoded.min.js"></script>
-		<script>
-			$( document ).ready( function() {
-				$( this ).val( $( this ).val().replace( /[^0-9]/g, '' ) );
-			})
-		</script>
+
     </body>
 </html>
