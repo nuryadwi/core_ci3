@@ -69,16 +69,63 @@ class Backend extends Login_Controller {
                         'where'  => [
                            'user_profile_id' => $user->row('user_account_id')
                         ],
-                        'select' => 'user_profile_first_name, user_profile_last_name, user_profile_image user_group_id, user_group_name, user_group_title'
+                        'select' => 'user_profile_first_name, user_profile_last_name, user_profile_image, user_group_id, user_group_name, user_group_title'
                      ]
                   );
-                  //masih error null
-                  disp($detail->result());
-                  echo $this->db->last_query();
+                  $user_fullname = $detail->row('user_profile_first_name').' '.$detail->row('user_profile_last_name');
+                  $datetime = date("Y-m-d H:i:s");
+                  $session_arr = [
+                     'user_info' => [
+                        'user_is_company' => 0,
+                        'user_id' => $user->row('user_account_id'),
+                        'user_username' => $user->row('user_account_username'),
+                        'user_name' => $user_fullname,
+                        'user_group_id' => $detail->row('user_group_id'),
+                        'user_group_name' => $detail->row('user_group_name'),
+                        'user_group_title' => $detail->row('user_group_name'),
+                        'user_last_login' => $user->row('user_account_last_login_datetime'),
+                        'user_login_at' => $datetime,
+                        'user_image'   => $detail->row('user_profile_image'),
+                        'user_is_login' => 1,
+                        'user_is_admin' => true,
+                     ]
+                  ];
+                  $this->session->set_userdata( $session_arr );
+                  save_data(
+                     [
+                        'table' => 'sys_user_login_log',
+                        'set' => [
+                           'user_login_log_user_id' => $user->row('user_account_id'),
+                           'user_login_log_last_ip' => $this->get_client_ip(),
+                           'user_login_log_last_datetime' => $datetime,
+                        ]
+                     ]
+                  );
+                  save_data(
+                     [
+                        'table'  => 'core_user_account',
+                        'set'    => [
+                           'user_account_last_login_datetime'  => $datetime
+                        ],
+                        'where'  => [
+                           'user_account_id' => $user->row('user_account_id')
+                        ]
+                     ]
+                  );
+               } else {
+               $this->session->set_flashdata('error', 'Kombinasi Username dan Password Tidak valid !');
+               $redirect = base_url('login');
                }
+            } else {
+               $this->session->set_flashdata('error', 'User tidak ditemukan !');
+               $redirect = base_url('login');
             }
          }
+      }  else {
+         $this->session->set_flashdata('error', 'username /password harus diisi');
+         $redirect = base_url('login');
       }
+      redirect($redirect);
    }
 
    function get_client_ip() {
@@ -93,7 +140,6 @@ class Backend extends Login_Controller {
 
       return $ipaddress;
 	}
-
    // function sql_insert(){
    //    $this->db->trans_begin();
    //    $pass = '123456789';

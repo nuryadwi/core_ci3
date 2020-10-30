@@ -12,8 +12,9 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 #codeigniter 3
 .vscode/*
-application/logs/*
-application/ci_session/*
+_app/application/logs/*
+_app/application/cache/*
+_app/application/ci_session/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/

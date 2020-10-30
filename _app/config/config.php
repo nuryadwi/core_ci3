@@ -23,10 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
-// $http = 'http' . ( ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' ) ? 's' : '' ) . '://';
-// $fo = str_replace( "index.php", "", $_SERVER['SCRIPT_NAME'] );
-// $config['base_url'] = "$http" . $_SERVER['SERVER_NAME'] . "" . $fo;
+// $config['base_url'] = 'http://127.0.0.1/core_ci3/';
+$http = 'http' . ( ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] == 'on' ) ? 's' : '' ) . '://';
+$fo = str_replace( "index.php", "", $_SERVER['SCRIPT_NAME'] );
+$config['base_url'] = "$http" . $_SERVER['SERVER_NAME'] . "" . $fo;
 
 /*
 |--------------------------------------------------------------------------
@@ -237,7 +237,7 @@ $config['log_threshold'] = 0;
 | application/logs/ directory. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '';
+$config['log_path'] = APPPATH . 'application/logs/';
 
 /*
 |--------------------------------------------------------------------------
@@ -251,7 +251,7 @@ $config['log_path'] = '';
 | Note: Leaving it blank will default to 'php'.
 |
 */
-$config['log_file_extension'] = '';
+$config['log_file_extension'] = '.txt';
 
 /*
 |--------------------------------------------------------------------------
@@ -296,7 +296,7 @@ $config['error_views_path'] = '';
 | application/cache/ directory.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '';
+$config['cache_path'] = APPPATH . 'application/cache/';
 
 /*
 |--------------------------------------------------------------------------
@@ -327,7 +327,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'debf9fe5123e7dc3bce31ded408b4b5012asd';
 
 /*
 |--------------------------------------------------------------------------
@@ -383,7 +383,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = APPPATH . 'application/ci_session/';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -524,3 +524,11 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+function my_loader( $class ) {
+    if ( strpos( $class, 'CI_' ) !== 0 ) {
+        @include_once( APPPATH . 'core/'. $class . '.php' );
+    }
+}
+
+spl_autoload_register( "my_loader" );

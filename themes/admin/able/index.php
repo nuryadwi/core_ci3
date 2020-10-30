@@ -135,10 +135,10 @@
     				<div class="navbar-content scroll-div " >
     					<div class="">
     						<div class="main-menu-header">
-                    <h5> Administrator </h5>
-                    <img class="img-radius" src="<?php echo $image_profile;?> " alt="User-Profile-Image">
+                     <h5><?php echo $this->user_info['user_group_title']; ?></h5>
+                     <img class="img-radius" src="<?php echo $image_profile;?> " alt="User-Profile-Image">
                      <div class="user-details">
-   							<div id="more-details">Nama pengguna</div>
+   							<div id="more-details"><?php echo $this->user_info['user_name']; ?></div>
    						</div>
                 </div>
                 <ul class="nav pcoded-inner-navbar">

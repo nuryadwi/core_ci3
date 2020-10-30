@@ -54,7 +54,7 @@
 										echo '
 										<p class="mb-4 text-muted"> <a href="' . base_url() . 'login/reset" class="text-primary f-w-100">Lupa Password ?</a>
 										</p>
-										<p class="mb-2 text-muted">Belum punya akun ? Daftar</p> <p class="text-muted"> <a href="' . base_url() . 'registration/pendana" class="btn btn-sm btn-warning text-white f-w-400"> Pegawai</a> atau <a href="' . base_url() . 'registration/pemilik_proyek" class="btn btn-sm btn-warning text-white f-w-400">Perusahaan</a>
+										<p class="mb-2 text-muted">Belum punya akun ? Daftar</p> <p class="text-muted"> <a href="' . base_url() . 'registration/pendana" class="btn btn-sm btn-warning text-white f-w-400"> Pelamar Kerja</a> atau <a href="' . base_url() . 'registration/pemilik_proyek" class="btn btn-sm btn-warning text-white f-w-400">Perusahaan</a>
 										</p>
 										';
 									?>

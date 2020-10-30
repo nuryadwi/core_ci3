@@ -55,5 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 // ADMIN ROUTES
 $route['admin/login'] = "login/backend";
-$route['admin/login/auth'] = "login/backend/auth";
+$route['admin/login/(:any)'] = "login/backend/$1";
 $route['admin/dashboard'] = "dashboard/backend";
+$route['admin/(:any)/(:any)'] = "$1/backend/$2";
+
+$route['login'] = "login/backend";
+$route['login/(:any)'] = "login/member/$1";
+$route['logout'] = "login/logout";

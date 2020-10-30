@@ -13,6 +13,6 @@ class Logout extends MY_Controller {
    }
    function index() {
       session_destroy();
-      redirect( base_url( 'login' ) );
+      redirect( base_url('login') );
    }
 }

@@ -14,11 +14,11 @@ class Backend extends Backend_Controller
     }
 
     function show() {
-        $data = [];
+      $data = [];
 		$this->template->breadcrumb($this->breadcrumb);
 		$this->template->title("Dashboard");
 		$this->template->content("dashboard/Dashboard", $data);
 
-        $this->template->show(THEMES_BACKEND . 'index');
+      $this->template->show(THEMES_BACKEND . 'index');
     }
 }
