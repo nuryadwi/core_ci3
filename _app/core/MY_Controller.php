@@ -3,9 +3,9 @@
 class MY_Controller extends CI_Controller {
 
     public function __construct() {
-        parent::__construct(); 
+        parent::__construct();
         $this->load->helper( 'app' );
-        $this->load->library( 'session' );
+        $this->load->library( 'auth','session' );
     }
 
     public function get_theme( $type = null ) {

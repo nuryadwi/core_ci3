@@ -8,4 +8,5 @@ $config['allowed_uri'] = array(
 	'admin/profile/edit_account',
 	'admin/member/get_member_info/(.*)',
 	'admin/dashboard/show',
+   'admin/menu_action/show'
 );

@@ -9,7 +9,7 @@ class Login_Controller extends MY_Controller {
       $this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 
       $this->load->helper( 'app' );
-      $this->load->library( 'session' );
+      $this->load->library( 'auth','session' );
 
       define('THEMES_LOGIN', 'themes/login/' . $this->get_theme( 'login' ) . DIRECTORY_SEPARATOR );
       if ( $this->check_login() ) {

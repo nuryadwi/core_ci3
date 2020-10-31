@@ -54,10 +54,12 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // ADMIN ROUTES
-$route['admin/login'] = "login/backend";
-$route['admin/login/(:any)'] = "login/backend/$1";
-$route['admin/dashboard'] = "dashboard/backend";
+// $route['admin/login'] = "login/backend";
+// $route['admin/login/(:any)'] = "login/backend/$1";
+//$route['admin/dashboard'] = "dashboard/backend";
+$route['admin/(:any)'] = "$1/backend";
 $route['admin/(:any)/(:any)'] = "$1/backend/$2";
+$route['admin/(:any)/(:any)/(:any)'] = "$1/backend/$2/$3";
 
 $route['login'] = "login/backend";
 $route['login/(:any)'] = "login/member/$1";

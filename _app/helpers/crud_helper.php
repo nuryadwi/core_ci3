@@ -34,12 +34,12 @@ if( ! function_exists( 'get_data' ) ) {
 					$CI->db->from( $tab );
 				}
                 $n++;
-            }   
+            }
         }
         else {
 			$CI->db->from( $param['table'] );
         }
-        
+
         // WHERE
 		if ( ! empty( $param['where'] ) ) {
 			foreach( $param['where'] as $w => $an ) {
@@ -267,4 +267,37 @@ if ( ! function_exists( 'get_datatable' ) ) {
         return $output;
     }
 }
-    
+
+// Combo box database
+if ( ! function_exists( 'combo_box' ) ) {
+   function combo_box($param = array()) {
+      $combo 		= false;
+
+      if(!empty($param['pilih'])) {
+         $combo 		= array(
+            '' 			=> !empty($param['pilih']) ? $param['pilih']:'-- Pilih --');
+      }
+      foreach($param['data_combo'] as $row) {
+         $valueb 	= array();
+
+         if (is_array($param['val'])) {
+            foreach($param['val'] as $v) {
+               if (is_array($v)) {
+                  if ($v[0] == "(") $valueb[] = "(".$row->$v[1].")";
+               } else {
+                  $valueb[] = $row->$v;
+               }
+            }
+         } else {
+            $valueb[] = $row->$param['val'];
+         }
+         $keyb = array();
+         if (is_array($param['key'])) {
+            foreach($param['key'] as $k) { $keyb[] = (strlen($row->$k) > 100)?substr($row->$k,0,100).' ...':$row->$k; }
+         }
+         $keyv = is_array($param['key']) ? implode("|",$keyb) : $row->$param['key'];
+
+         $combo[$keyv] = implode(" ",$valueb);
+      } return $combo;
+   }
+}
