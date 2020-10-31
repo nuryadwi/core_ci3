@@ -63,7 +63,7 @@ CREATE TABLE `core_menu` (
   `menu_sort` int DEFAULT NULL,
   `menu_is_active` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '1',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `core_menu` (
 
 LOCK TABLES `core_menu` WRITE;
 /*!40000 ALTER TABLE `core_menu` DISABLE KEYS */;
-INSERT INTO `core_menu` VALUES (1,0,'Navigasi','navigasi','#','',NULL,'fa fa-th-list','[\"show\"]',1,'1'),(2,1,'Menu Action','menu-action','admin/menu_action/show','',NULL,'fa fa-tasks','[\"show\",\"add\",\"update\",\"delete\",\"activate\",\"deactivate\"]',1,'1');
+INSERT INTO `core_menu` VALUES (1,0,'Navigasi','navigasi','#','',NULL,'fa fa-th-list','[\"show\"]',1,'1'),(2,1,'Menu Action','menu-action','admin/menu_action/show','',NULL,'fa fa-tasks','[\"show\",\"add\",\"update\",\"delete\",\"activate\",\"deactivate\"]',1,'1'),(3,1,'Menu','menu','admin/menu/show','','','fa fa-list-alt','[\\\"show\\\",\\\"add\\\",\\\"update\\\",\\\"delete\\\",\\\"activate\\\",\\\"deactivate\\\"]',1,'1');
 /*!40000 ALTER TABLE `core_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +138,7 @@ CREATE TABLE `core_user_account` (
 
 LOCK TABLES `core_user_account` WRITE;
 /*!40000 ALTER TABLE `core_user_account` DISABLE KEYS */;
-INSERT INTO `core_user_account` VALUES (84,'0','files.yadi@gmail.com','$2y$10$RMCXoZaIujIme0xkg4p2hekDOGHexPhnWYMmBUu3XsbhMRargiqSO',628500000121,'admin',NULL,NULL,'2020-10-29 16:58:56',NULL,NULL,1,'1','2020-10-31 05:01:40');
+INSERT INTO `core_user_account` VALUES (84,'0','files.yadi@gmail.com','$2y$10$RMCXoZaIujIme0xkg4p2hekDOGHexPhnWYMmBUu3XsbhMRargiqSO',628500000121,'admin',NULL,NULL,'2020-10-29 16:58:56',NULL,NULL,1,'1','2020-10-31 21:31:29');
 /*!40000 ALTER TABLE `core_user_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,7 @@ CREATE TABLE `core_user_group_role` (
   `user_group_role_menu_id` int NOT NULL,
   `user_group_role_menu_action` text,
   PRIMARY KEY (`user_group_role_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,6 +191,7 @@ CREATE TABLE `core_user_group_role` (
 
 LOCK TABLES `core_user_group_role` WRITE;
 /*!40000 ALTER TABLE `core_user_group_role` DISABLE KEYS */;
+INSERT INTO `core_user_group_role` VALUES (1,1,2,'[\"show\",\"add\",\"update\",\"delete\",\"activate\",\"deactivate\"]'),(2,1,3,'[\\\"show\\\",\\\"add\\\",\\\"update\\\",\\\"delete\\\",\\\"activate\\\",\\\"deactivate\\\"]');
 /*!40000 ALTER TABLE `core_user_group_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,7 +298,7 @@ CREATE TABLE `sys_user_login_log` (
   `user_login_log_last_datetime` datetime DEFAULT NULL,
   `user_login_log_otp` varchar(6) DEFAULT NULL,
   PRIMARY KEY (`user_login_log_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -306,7 +307,7 @@ CREATE TABLE `sys_user_login_log` (
 
 LOCK TABLES `sys_user_login_log` WRITE;
 /*!40000 ALTER TABLE `sys_user_login_log` DISABLE KEYS */;
-INSERT INTO `sys_user_login_log` VALUES (1,84,'127.0.0.1','2020-10-31 01:06:49',NULL),(2,84,'127.0.0.1','2020-10-31 01:13:54',NULL),(3,84,'127.0.0.1','2020-10-31 01:19:51',NULL),(4,84,'127.0.0.1','2020-10-31 02:39:24',NULL),(5,84,'127.0.0.1','2020-10-31 03:00:24',NULL),(6,84,'127.0.0.1','2020-10-31 03:01:43',NULL),(7,84,'127.0.0.1','2020-10-31 03:20:32',NULL),(8,84,'127.0.0.1','2020-10-31 04:10:30',NULL),(9,84,'127.0.0.1','2020-10-31 04:28:52',NULL),(10,84,'127.0.0.1','2020-10-31 04:34:55',NULL),(11,84,'127.0.0.1','2020-10-31 04:41:50',NULL),(12,84,'127.0.0.1','2020-10-31 04:43:06',NULL),(13,84,'127.0.0.1','2020-10-31 04:44:17',NULL),(14,84,'127.0.0.1','2020-10-31 05:01:40',NULL);
+INSERT INTO `sys_user_login_log` VALUES (1,84,'127.0.0.1','2020-10-31 01:06:49',NULL),(2,84,'127.0.0.1','2020-10-31 01:13:54',NULL),(3,84,'127.0.0.1','2020-10-31 01:19:51',NULL),(4,84,'127.0.0.1','2020-10-31 02:39:24',NULL),(5,84,'127.0.0.1','2020-10-31 03:00:24',NULL),(6,84,'127.0.0.1','2020-10-31 03:01:43',NULL),(7,84,'127.0.0.1','2020-10-31 03:20:32',NULL),(8,84,'127.0.0.1','2020-10-31 04:10:30',NULL),(9,84,'127.0.0.1','2020-10-31 04:28:52',NULL),(10,84,'127.0.0.1','2020-10-31 04:34:55',NULL),(11,84,'127.0.0.1','2020-10-31 04:41:50',NULL),(12,84,'127.0.0.1','2020-10-31 04:43:06',NULL),(13,84,'127.0.0.1','2020-10-31 04:44:17',NULL),(14,84,'127.0.0.1','2020-10-31 05:01:40',NULL),(15,84,'127.0.0.1','2020-10-31 05:20:22',NULL),(16,84,'127.0.0.1','2020-10-31 05:30:17',NULL),(17,84,'127.0.0.1','2020-10-31 17:32:42',NULL),(18,84,'127.0.0.1','2020-10-31 18:15:39',NULL),(19,84,'127.0.0.1','2020-10-31 18:26:28',NULL),(20,84,'127.0.0.1','2020-10-31 21:31:29',NULL);
 /*!40000 ALTER TABLE `sys_user_login_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,4 +345,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-31  5:10:04
+-- Dump completed on 2020-10-31 21:44:03
