@@ -108,7 +108,7 @@
 							<div class="dropdown-menu dropdown-menu-right profile-notification">
 								<div class="pro-head">
 									<img src="<?php echo $image_profile;?>" class="img-radius" alt="User-Profile-Image">
-									<span><?php echo isset($this->user_info['user_name']);?></span>
+									<span><?php echo $this->user_info['user_name'];?></span>
 								</div>
 								<ul class="pro-body">
 									<li>

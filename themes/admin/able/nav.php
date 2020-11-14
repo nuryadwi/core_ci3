@@ -18,17 +18,27 @@ class Navigasi {
 					<span class="pcoded-mtext">Dashboard</span>
 				</a>
 			</li>
-      ';
-      $menu .= '
-			<li class="nav-item" title="Logout">
-				<a href="' . base_url( 'logout' ) . '" class="nav-link">
+
+			<li class="nav-item" title="Dashboard">
+				<a href="' . base_url('admin/menu/show') . '" class="nav-link">
 					<span class="pcoded-micon">
-						<i class="fa fa-power-off"></i>
+						<i class="feather icon-home"></i>
 					</span>
-					<span class="pcoded-mtext">Log Out</span>
+					<span class="pcoded-mtext">Menu</span>
 				</a>
 			</li>
-		';
+      ';
+      $menu .= $this->render_nav($arr_menu, '0');
+      // $menu .= '
+		// 	<li class="nav-item" title="Logout">
+		// 		<a href="' . base_url( 'logout' ) . '" class="nav-link">
+		// 			<span class="pcoded-micon">
+		// 				<i class="fa fa-power-off"></i>
+		// 			</span>
+		// 			<span class="pcoded-mtext">Log Out</span>
+		// 		</a>
+		// 	</li>
+		// ';
       return $menu;
    }
 

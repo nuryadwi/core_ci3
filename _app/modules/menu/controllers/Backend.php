@@ -44,6 +44,7 @@ class Backend extends Backend_Controller {
          $this->template->breadcrumb( array_merge ($this->breadcrumb , $breadcrumb ) );
          $data['url_add'] = site_url( $this->url_module ) . "/get_form?par=" . enc( [ 'parent_id' => $par['menu_id'] ] );
       }
+
       $this->template->title( 'Menu' );
 		$this->template->content( "general/Table_view", $data );
 		$this->template->show( THEMES_BACKEND . 'index' );
@@ -214,5 +215,10 @@ class Backend extends Backend_Controller {
          </div>
       ';
       $this->load->view('general/Form_view', $data);
+   }
+
+   function act_save($value='') {
+      $in = $this->input->post();
+
    }
 }

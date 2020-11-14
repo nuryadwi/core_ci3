@@ -1,9 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/**
-*backend action login admin
-*author @dwinuryadi
-*/
 
 class Backend extends Login_Controller {
 
@@ -31,19 +27,19 @@ class Backend extends Login_Controller {
          if ( $this->verify_user( xss_clean( html_escape( $in['username'] ) ) ) && $this->verify_user( xss_clean( html_escape( $in['password'] ) ) ) ) {
             $session_arr = [
                      'user_info' => [
-                              'user_is_company' => 0,
-                              'user_company_id' => '0',
-                              'user_company_name' => 'Carijobs',
-                              'user_id'   => '0',
-                              'user_username' => 'root',
-                              'user_name' => 'Root',
-                              'user_group_title' => 'Root',
-                              'user_group_id' => '0',
-                              'user_group_name' => 'root',
-                              'user_last_login' => '-',
-                              'user_image' => '',
-                              'user_is_login' => 1,
-                              'user_is_admin' => true
+                           'user_is_company' => 0,
+                           'user_company_id' => '0',
+                           'user_company_name' => 'Carijobs',
+                           'user_id'   => '0',
+                           'user_username' => 'root',
+                           'user_name' => 'Root',
+                           'user_group_title' => 'Root',
+                           'user_group_id' => '0',
+                           'user_group_name' => 'root',
+                           'user_last_login' => '-',
+                           'user_image' => '',
+                           'user_is_login' => 1,
+                           'user_is_admin' => true
                      ],
             ];
             $this->session->set_userdata( $session_arr );
