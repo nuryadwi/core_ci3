@@ -131,7 +131,7 @@
             </div>
         </header>
         <nav class="pcoded-navbar menu-light position-fixed">
-    			<div class="navbar-wrapper  ">
+    			<!-- <div class="navbar-wrapper  ">
     				<div class="navbar-content scroll-div " >
     					<div class="">
     						<div class="main-menu-header">
@@ -140,7 +140,7 @@
                      <div class="user-details">
    							<div id="more-details"><?php echo $this->user_info['user_name']; ?></div>
    						</div>
-                </div>
+                </div> -->
                 <ul class="nav pcoded-inner-navbar">
                      <?php require('nav.php'); ?>
                 </ul>

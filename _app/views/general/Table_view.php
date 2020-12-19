@@ -18,7 +18,7 @@
 <div class="" id="form_area" style="display:none;"></div>
 <div class="" id="table_area">
    <div class="row col-md-12">
-      <h4><b><?php //echo $table['title']?></b></h4>
+      <h4><b><?php echo $table['title']?></b></h4>
    </div>
 </div>
 <div class="mr-1 mb-2">

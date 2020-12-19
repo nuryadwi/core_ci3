@@ -32,6 +32,7 @@ class Backend extends Backend_Controller {
       ];
       if (empty( $par ) ) {
          $data['table']['title'] = 'Tabel Menu';
+         $data['btn_control'] = 'add';
          $data['table']['url'] = site_url("admin/menu/get_data");
          $this->template->breadcrumb( $this->breadcrumb );
          $data['url_add'] = site_url( $this->url_module ) .'/get_form';
@@ -151,7 +152,6 @@ class Backend extends Backend_Controller {
          'sort_by' => 'core_menu_id'
       ];
       $query_action = get_data($params_action);
-
       $disp_menu_action = '';
       $jumlah_action = $query_action->num_rows();
       $jumlah_per_row = ceil( $jumlah_action / 3 );

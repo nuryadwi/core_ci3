@@ -22,7 +22,7 @@ class Navigasi {
 			<li class="nav-item" title="Dashboard">
 				<a href="' . base_url('admin/menu/show') . '" class="nav-link">
 					<span class="pcoded-micon">
-						<i class="feather icon-home"></i>
+						<i class="feather icon-menu"></i>
 					</span>
 					<span class="pcoded-mtext">Menu</span>
 				</a>
